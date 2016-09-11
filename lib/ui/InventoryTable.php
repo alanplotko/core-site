@@ -13,6 +13,6 @@ final class :ui:inventory-table extends :ui:base {
 			Map{'data' => $results}
 		);
 		return <div />;
-	}	
+	}
 
 }

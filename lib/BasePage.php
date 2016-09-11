@@ -16,7 +16,7 @@ abstract class BasePage {
 
   /*
     Implement this function to return the body content for a particular page.
-    
+
     @return A :div containing the main page content
   */
   abstract public function getPageContent(): :xhp;
@@ -34,7 +34,7 @@ abstract class BasePage {
   final public function getHeadContent(): :head {
     $pageTitle =
       <title>
-        CoRE :: {$this->getPageTitle()}
+        CoRE | {$this->getPageTitle()}
       </title>;
     $charset =
       <meta 
@@ -105,7 +105,7 @@ abstract class BasePage {
   */
   final public function getPage(): :x:doctype {
     $head = $this->getHeadContent();
-    $body = <body />;
+    $body = <body class="ui container" />;
     $body->appendChild($this->getNavBar());
     $body->appendChild($this->getPageContent());
     return
@@ -125,7 +125,7 @@ abstract class BasePage {
   private function jsResources(): array<string> {
     return array(
       '//code.jquery.com/jquery-1.11.0.min.js',
-      'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js',
+      'node_modules/semantic-ui-css/semantic.min.js',
 			'./build/bundle.js'
     );
   }
@@ -137,8 +137,7 @@ abstract class BasePage {
   */
   private function cssResources(): array<string> {
     return array(
-      'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css',
-      'https://maxcdn.bootstrapcdn.com/bootswatch/3.3.5/cosmo/bootstrap.min.css',
+      'node_modules/semantic-ui-css/semantic.min.css',
       'css/style.css'
     );
   }

@@ -1,48 +1,31 @@
 <?hh
 
 class :ui:navbar extends :x:element {
-  attribute
-    array<string, string> content @required, // The pages <page name => link>
-    string page-title @required; // The title of the current page
+    attribute
+      array<string, string> content @required, // The pages <page name => link>
+      string page-title @required; // The title of the current page
 
-  const string TITLE = 'CoRE';
+    const string TITLE = 'CoRE';
+    const string URL = '/';
 
-	protected function render(): :nav {
-    $navItems = array();
-		$requestUri = $_SERVER["REQUEST_URI"];
-    foreach ($this->:content as $itemTitle => $link) {
-			$link = preg_replace("/(\/[^\/]*)$/", $link, $requestUri);
-      $navItems[] =
-        <li class={!strcasecmp($this->:page-title, $itemTitle)
-          ? 'true' 
-          : 'false'}>
-          <a href={$link}>{$itemTitle}</a>
-        </li>;
+    protected function render(): :div {
+        $navItems = array();
+        $requestUri = $_SERVER["REQUEST_URI"];
+        foreach ($this->:content as $itemTitle => $link) {
+            $link = preg_replace("/(\/[^\/]*)$/", $link, $requestUri);
+            $navItems[] =
+                <a class={!strcasecmp($this->:page-title, $itemTitle) ? 'active item' : 'item'} href={$link}>{$itemTitle}</a>;
+        }
+        return
+            <div>
+              <div class="logo">
+                <a href={self::URL}><img src="/images/logo.png" /></a>
+              </div>
+              <div id="navigation" class="ui large stackable menu no-margin">
+                <div class="menu">
+                  {$navItems}
+                </div>
+              </div>
+            </div>;
     }
-		return
-			<nav class="navbar navbar-default navbar-fixed-top">
-	      <div class="container">
-	        <div class="navbar-header">
-	          <button 
-              type="button"
-              class="navbar-toggle collapsed"
-              data-toggle="collapse"
-              data-target="#navbar"
-              aria-expanded="false"
-              aria-controls="navbar">
-	            <span class="sr-only">Toggle navigation</span>
-	            <span class="icon-bar"></span>
-	            <span class="icon-bar"></span>
-	            <span class="icon-bar"></span>
-	          </button>
-	          <a class="navbar-brand" href="#">{self::TITLE}</a>
-	        </div>
-	        <div id="navbar" class="collapse navbar-collapse">
-	          <ul class="nav navbar-nav">
-	            {$navItems}
-	          </ul>
-	        </div>
-	      </div>
-	    </nav>;
-	}
 }

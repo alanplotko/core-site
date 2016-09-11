@@ -4,9 +4,9 @@ final class :ui:root extends :ui:base {
   attribute :div;
 
   protected function compose(): :div {
-    $this->addClass('container');
+    $this->addClass('');
     return
       <div>{$this->getChildren()}</div>;
   }
-  
+
 }

@@ -10,9 +10,9 @@ class DB {
 		}
 		$json = json_decode($fileContents, true);
     self::$mysqli = mysqli_connect(
-      "localhost", 
-      $json['user'], 
-      $json['password'], 
+      "localhost",
+      $json['user'],
+      $json['password'],
       "CoREtex",
     );
   }

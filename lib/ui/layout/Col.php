@@ -2,11 +2,10 @@
 
 final class :ui:col extends :ui:base {
 	attribute
-		:div,
-    string size = "col-md-12";
+		:div;
 
   protected function compose(): :div {
-    $this->addClass($this->:size);
+    $this->addClass('column');
     return
       <div>{$this->getChildren()}</div>;
   }

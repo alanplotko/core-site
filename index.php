@@ -12,11 +12,6 @@ class HomePage extends BasePage {
       <ui:root>
         <ui:row>
           <ui:col class="centering">
-            <img
-              src="/images/logo01_transparent.png"
-              class="headLogo" />
-          </ui:col>
-          <ui:col class="centering">
             <span class="welcomeText">
               Welcome to CoRE!
             </span>
