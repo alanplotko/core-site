@@ -12,6 +12,10 @@ body {
     margin-bottom: -4px;
 }
 
+#navigation {
+    margin-bottom: 1em!important;
+}
+
 .no-margin {
     margin: 0!important;
 }

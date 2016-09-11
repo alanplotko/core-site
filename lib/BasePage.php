@@ -105,7 +105,7 @@ abstract class BasePage {
   */
   final public function getPage(): :x:doctype {
     $head = $this->getHeadContent();
-    $body = <body class="ui container" />;
+    $body = <body />;
     $body->appendChild($this->getNavBar());
     $body->appendChild($this->getPageContent());
     return

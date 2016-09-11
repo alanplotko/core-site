@@ -18,11 +18,11 @@ class :ui:navbar extends :x:element {
         }
         return
             <div>
-              <div class="logo">
+              <div class="ui container logo">
                 <a href={self::URL}><img src="/images/logo.png" /></a>
               </div>
               <div id="navigation" class="ui large stackable menu no-margin">
-                <div class="menu">
+                <div class="ui container">
                   {$navItems}
                 </div>
               </div>
