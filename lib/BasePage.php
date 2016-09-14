@@ -58,11 +58,11 @@ abstract class BasePage {
           rel="stylesheet"
           href={$x} />;
     }
-	$favicon =
-		<link
-			rel="shortcut icon"
-			href="/images/favicon.ico"
-			type="image/x-icon" />;
+  $favicon =
+    <link
+      rel="shortcut icon"
+      href="/images/favicon.ico"
+      type="image/x-icon" />;
 
     return
       <head>
@@ -72,7 +72,7 @@ abstract class BasePage {
         {$viewport}
         {$jsScripts}
         {$cssStyles}
-				{$favicon}
+        {$favicon}
       </head>;
   }
 
@@ -85,10 +85,11 @@ abstract class BasePage {
   final public function getNavBar(): :ui:navbar {
     $navContent = array(
       'Home' => '/',
-      'About' => '/about.php',
-			'Contact' => '/contact.php',
-			'Join' => '/join.php',
-			'Test' => '/test.php'
+      'History' => '/history.php',
+      'Join' => '/join.php',
+      //'About' => '/about.php',
+      'Contact' => '/contact.php'//,
+      //'Test' => '/test.php'
     );
     return
       <ui:navbar
@@ -126,7 +127,7 @@ abstract class BasePage {
     return array(
       '//code.jquery.com/jquery-1.11.0.min.js',
       'node_modules/semantic-ui-css/semantic.min.js',
-			'./build/bundle.js'
+      './build/bundle.js'
     );
   }
 

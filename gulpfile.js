@@ -13,25 +13,25 @@ var shell = require('gulp-shell');
 */
 
 gulp.task('browserify', function() {
-	  var files = glob.sync('./js/**/*.js');
+    var files = glob.sync('./js/**/*.js');
     var b = browserify();
     for (var i = 0; i < files.length; i++) {
       var matches = /(\w+)\.js$/.exec(files[i]);
       b.require(files[i], {expose: matches[1]});
     }
     b.require('xhpjs');
-		return b
-			.bundle()
-			.pipe(source('bundle.js'))
-			.pipe(gulp.dest('./build/'));
+    return b
+      .bundle()
+      .pipe(source('bundle.js'))
+      .pipe(gulp.dest('./build/'));
 });
 
 gulp.task('install-php', shell.task([
-	'hhvm composer.phar install'
+  'hhvm composer.phar install'
 ]));
 
 gulp.task('autoload', shell.task([
-	'hhvm composer.phar dump-autoload'
+  'hhvm composer.phar dump-autoload'
 ]));
 
 gulp.task('serve', shell.task([

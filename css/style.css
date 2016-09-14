@@ -1,5 +1,10 @@
 body {
     padding-top: 10px;
+    background-color: #eee;
+}
+
+.ui.segment p {
+    font-size: 1.1em;
 }
 
 .logo {
@@ -12,8 +17,10 @@ body {
     margin-bottom: -4px;
 }
 
-#navigation {
-    margin-bottom: 1em!important;
+.navigation {
+    margin-top: 0!important;
+    margin-bottom: 1.5em!important;
+    border-radius: 0!important;
 }
 
 .no-margin {
